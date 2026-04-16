@@ -9,6 +9,10 @@ import aiRouter from "./routes/aiRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+if (!process.env.JWT_SECRET) {
+    console.error("CRITICAL ERROR: JWT_SECRET is not defined in environment variables!");
+}
+
 // Database connection
 await connectDB()
 
